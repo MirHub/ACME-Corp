@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Routes } from '@angular/router';
+import { ProductsComponent } from 'src/app/products/products.component';
+import { ProductListComponent } from 'src/app/products/product-list/product-list.component';
 
 @Component({
   selector: 'acme-header',
@@ -8,7 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
+  changeRoute(route:string){
 
+  }
   ngOnInit() {
   }
 
