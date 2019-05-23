@@ -1,0 +1,8 @@
+<section id="productListing">
+  <h1 class="page-title">Products</h1>
+  <div class="row">
+    <div class='col-md-3 col-xs-6' *ngFor="let product of products">
+      <acme-product-list-item [product]="product"> </acme-product-list-item>
+    </div>
+  </div>
+</section>
