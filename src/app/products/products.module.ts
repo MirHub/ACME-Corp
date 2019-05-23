@@ -5,6 +5,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { ProdcutService } from './common_func/products.service';
 import { RouterModule, Routes } from '@angular/router';
+import { FormModalComponent } from './form-modal/form-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'products',
@@ -17,13 +20,20 @@ const routes: Routes = [
   declarations: [
     ProductsComponent, 
     ProductListComponent, 
-    ProductListItemComponent],
+    ProductListItemComponent, 
+    FormModalComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    NgbModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProdcutService
+  ],
+  entryComponents: [
+    FormModalComponent
   ]
 })
 export class ProductsModule { }

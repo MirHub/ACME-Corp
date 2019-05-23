@@ -7,6 +7,9 @@ import { HeaderComponent } from './common/header/header.component';
 import { ProdcutService } from './products/common_func/products.service';
 import { ProductsModule } from './products/products.module';
 import { Routes, RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormModalComponent } from './products/form-modal/form-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', redirectTo: '/products', pathMatch: 'full'}
@@ -14,15 +17,17 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     ProductsModule,
     AppRoutingModule
+    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

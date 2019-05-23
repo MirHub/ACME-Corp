@@ -1,5 +1,5 @@
 <!-- <router-outlet></router-outlet> -->
-<a routerLink="/products/{{product.id}}">
+<a (click)="openFormModal()">
   <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="http://via.placeholder.com/450x300" alt="Card image cap">
   <div class="card-body">
@@ -9,3 +9,4 @@
   </div>
 </div>
 </a>
+<router-outlet></router-outlet>
