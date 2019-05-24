@@ -8,15 +8,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormModalComponent } from './form-modal/form-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from '../cart/cart.component';
+import { CartModule } from '../cart/cart.module';
 
 const routes: Routes = [
   { path: 'products',
     component: ProductsComponent,
     children: [
     	{ path: '', component: ProductListComponent },]
-  },
-  {
-    path: 'cart', component: ProductListComponent
   }
 ]
 @NgModule({

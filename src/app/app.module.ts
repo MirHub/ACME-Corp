@@ -10,9 +10,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormModalComponent } from './products/form-modal/form-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartComponent } from './cart/cart.component';
+import { CartModule } from './cart/cart.module';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/products', pathMatch: 'full'}
+  {path: '', redirectTo: '/products', pathMatch: 'full'},
+  {
+    path: 'cart', component: CartComponent
+  }
 ]
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     ProductsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CartModule
     
   ],
   providers: [],

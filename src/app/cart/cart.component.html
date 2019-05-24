@@ -1,0 +1,28 @@
+<html >
+
+  <body class="container">
+   
+    <table class="table" ng-show="cartData.length > 0">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th colspan="2">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartData">
+          <td>{{item.name}}</td>
+          <td><button class="btn btn-danger" (click) ="decrease(item)">-</button>&nbsp;&nbsp;<input maxlength="4" size="2" value={{item.quantity}}>&nbsp;&nbsp; <button class="btn btn-success" (click) ="increase(item)">+</button>x {{item.price}} = </td>
+          <td>
+            <button class="btn btn-danger" (click) ="remove(item)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      Send Receipt to: <br>
+    <input placeholder="jobs@example.com">
+    <button class="btn btn-success pull-right" type="submit" (click) ="buynow()">Buy Now</button>
+  </div>
+  </body>
+</html>
