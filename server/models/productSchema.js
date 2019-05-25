@@ -6,7 +6,8 @@ const productSchema = new Schema({
     title: { type: String, required: true, max: [128, 'Too long, max is 128 characters']},
     price: {type: String, required: true},
     image: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    quantityAvailable: {type: String, required: true}
 });
 
 

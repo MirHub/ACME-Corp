@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../common_func/products.model';
-import { ProductService } from '../common_func/product.service';
+import { ProductService } from '../../../services/product.service';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/models/products.model';
 
 @Component({
   selector: 'acme-product-list',

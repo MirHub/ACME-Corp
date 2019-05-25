@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
-import { ProductService } from './common_func/product.service';
+import { ProductService } from '../../services/product.service';
 import { RouterModule, Routes } from '@angular/router';
 import { FormModalComponent } from './form-modal/form-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';

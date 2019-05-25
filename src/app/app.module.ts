@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './common/header/header.component';
-import { ProductService } from './products/common_func/product.service';
-import { ProductsModule } from './products/products.module';
+import { HeaderComponent } from './components/common/header/header.component';
+import { ProductService } from './services/product.service';
+import { ProductsModule } from './components/products/products.module';
 import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormModalComponent } from './products/form-modal/form-modal.component';
+import { FormModalComponent } from './components/products/form-modal/form-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CartComponent } from './cart/cart.component';
-import { CartModule } from './cart/cart.module';
+import { CartComponent } from './components/cart/cart.component';
+import { CartModule } from './components/cart/cart.module';
 
 const routes: Routes = [
   {path: '', redirectTo: '/products', pathMatch: 'full'},
