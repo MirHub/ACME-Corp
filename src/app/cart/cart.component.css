@@ -1,0 +1,12 @@
+tr, th {
+    border: 1px solid black;
+    text-align: left;
+}
+table { 
+    border-collapse:initial; 
+    border-spacing:2em;
+} 
+#buynowBtn{
+    float: right;
+}
+

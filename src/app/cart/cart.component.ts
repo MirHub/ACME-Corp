@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Product } from '../products/common_func/products.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsComponent } from '../products/products.component';
 
 @Component({
   selector: 'acme-cart',
@@ -6,14 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  cartProducts: Product[];
   cartData: any[] = [
-    {'name': 'Apple', 'quantity': 3, 'price': 1.10},
-    {'name': 'Orange', 'quantity': 2, 'price': 1.99},
-    {'name': 'Melon', 'quantity': 1, 'price': 3.22}
+    {'name': 'P1', 'quantity': 3, 'price': 1.10, description:'P1 Description'},
+    {'name': 'P1', 'quantity': 2, 'price': 1.99},
+    {'name': 'P2', 'quantity': 1, 'price': 3.22}
   ];
-  constructor() { }
+
+  constructor(private router: Router) { 
+    this.cartProducts = <Product[]>this.router.getCurrentNavigation().extras.state
+  }
 
   ngOnInit() {
+    if(this.cartProducts == null){
+      console.log("Empty cart");
+    }
   }
   remove = function(item) {
     console.log(item.name);
