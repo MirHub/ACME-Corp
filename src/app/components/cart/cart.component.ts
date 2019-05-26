@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../models/products.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsComponent } from '../products/products.component';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'acme-cart',
@@ -10,39 +11,58 @@ import { ProductsComponent } from '../products/products.component';
 })
 export class CartComponent implements OnInit {
   cartProducts: Product[];
-  cartData: any[] = [
-    {'name': 'P1', 'quantity': 3, 'price': 1.10, description:'P1 Description'},
-    {'name': 'P1', 'quantity': 2, 'price': 1.99},
-    {'name': 'P2', 'quantity': 1, 'price': 3.22}
-  ];
+  constructor(private router: Router, private shoppingCartService: ShoppingCartService) { 
+    const  productObervable =  shoppingCartService.getShoppingCartProducts();
+    productObervable.subscribe(
+      (products: Product[]) => {
+        this.cartProducts = products;
+        
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log("Observable Completed");
+      }
 
-  constructor(private router: Router) { 
-    this.cartProducts = <Product[]>this.router.getCurrentNavigation().extras.state
+    );
+    // var currentUser = JSON.parse(localStorage.getItem('products'));
+    // console.log("Current ", currentUser);
+    // this.cartProducts = currentUser;
+
   }
 
   ngOnInit() {
-    if(this.cartProducts == null){
-      console.log("Empty cart");
-    }
+    
   }
   remove = function(item) {
     console.log(item.name);
-    this.cartData.splice(item, 1);
+    this.cartProducts.splice(item, 1);
+    this.shoppingCartService.removeProduct(item);
   }
   
-  add = function() {
-    var newItem = {
-      'name': this.item, 
-      'quantity': this.quantity, 
-      'price': this.price
-    };
-    
-    this.cartData.push(newItem);
-  }
   increase = function(item) {
-    item.quantity += 1;
+    let temp = Number(item.quantity);
+    temp += 1;
+    let avq = Number(item.quantityAvailable);
+    if(temp > avq){
+      item.price = ""
+    }else{
+      item.quantity = String(temp);
+    }
 
   }
+  decrease = function(item){
+    let temp = Number(item.quantity);
+    temp -= 1;
+    if(temp == 0){
+      this.cartProducts.splice(item, 1);
+    }
+    item.quantity = String(temp); 
+  }
 
+  buynow = function(){
+     this.shoppingCartService.buyAllNow();
+  }
   
 }

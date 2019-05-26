@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormModalComponent } from '../form-modal/form-modal.component';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'acme-product-list-item',
@@ -9,7 +10,7 @@ import { FormModalComponent } from '../form-modal/form-modal.component';
 })
 export class ProductListItemComponent implements OnInit {
   @Input() product: any;
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal, private shoppingCartService: ShoppingCartService) { }
 
   openFormModal() {
     const modalRef = this.modalService.open(FormModalComponent);
@@ -24,5 +25,10 @@ export class ProductListItemComponent implements OnInit {
 }
 
   ngOnInit() {
+  }
+
+  addToCart(){
+    this.shoppingCartService.addProduct(this.product);
+    console.log("Added to cart");
   }
 }

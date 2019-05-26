@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartComponent } from '../cart/cart.component';
 import { CartModule } from '../cart/cart.module';
 import { HttpClientModule } from '@angular/common/http'
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 const routes: Routes = [
   { path: 'products',
@@ -34,7 +35,8 @@ const routes: Routes = [
     HttpClientModule
   ],
   providers: [
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   entryComponents: [
     FormModalComponent

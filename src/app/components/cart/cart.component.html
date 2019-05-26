@@ -2,7 +2,7 @@
 
   <body class="container">
    
-    <table class="table" ng-show="cartProducts.length > 0">
+    <table class="table">
       <thead>
         <tr>
           <th>Items</th>
@@ -18,7 +18,7 @@
           </div></td>
           <td><h3>{{item.title}}:</h3><br>
           {{item.description}}</td>
-          <td><button class="btn btn-danger" (click) ="decrease(item)">-</button>&nbsp;&nbsp;<input maxlength="4" size="2" value={{item.quantity}}>&nbsp;&nbsp; <button class="btn btn-success" (click) ="increase(item)">+</button>x {{item.price}} = </td>
+          <td><button class="btn btn-danger" (click) ="decrease(item)">-</button>&nbsp;&nbsp;<input maxlength="4" size="2" value={{item.quantity}}>&nbsp;&nbsp; <button class="btn btn-success" (click) ="increase(item)">+</button>&nbsp;&nbsp; x ${{item.price}} = {{item.quantity*item.price}}</td>
           <td>
             <button class="btn btn-danger" (click) ="remove(item)">Remove</button>
           </td>

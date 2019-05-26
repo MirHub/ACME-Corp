@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class FormModalComponent {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private shoppingCartService: ShoppingCartService
   ) {
     this.createForm();
   }
@@ -33,6 +35,10 @@ export class FormModalComponent {
   submitForm() {
     console.log('form has been submitted');
     this.activeModal.close(this.myForm.value);
+  }
+  addToCart(){
+    this.shoppingCartService.addProduct(this.product);
+    console.log("Added to cart");
   }
 
 }

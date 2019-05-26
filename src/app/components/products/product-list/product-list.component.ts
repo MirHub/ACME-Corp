@@ -10,9 +10,7 @@ import { Product } from 'src/app/models/products.model';
 })
 export class ProductListComponent implements OnInit {
   products: Product[] =[];
-  constructor(private productService: ProductService, private router: Router) { }
-
-  ngOnInit() {
+  constructor(private productService: ProductService, private router: Router) { 
     const productObervable = this.productService.getProducts();
     productObervable.subscribe(
       (products: Product[]) => {
@@ -27,6 +25,10 @@ export class ProductListComponent implements OnInit {
       }
 
     );
+  }
+
+  ngOnInit() {
+    
   }
   clickHandle(){
     console.log(this.products);
