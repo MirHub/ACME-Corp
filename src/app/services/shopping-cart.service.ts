@@ -30,8 +30,8 @@ export class ShoppingCartService {
     return this.httpclient.post("/api/v1/shoppingcart_r", _product, { responseType: 'text' }).subscribe(res => console.log(res));
   }
 
-  buyAllNow= (_product:Product) =>{
-    return this.httpclient.post("/api/v1/buynow", _product, { responseType: 'text' }).subscribe(res => console.log(res));
+  buyAllNow= (email: String) =>{
+    return this.httpclient.post("/api/v1/buynow", email, { responseType: 'text' }).subscribe(res => console.log(res));
   }
 
 }

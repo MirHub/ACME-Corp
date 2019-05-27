@@ -65,13 +65,12 @@ export class CartComponent implements OnInit {
       item.quantity = String(temp);
     } else {
       item.price = "";
-      
     }
-
   }
 
-  buynow = (item) => {
-    this.shoppingCartService.buyAllNow(item);
+  buynow = (email: String) => {
+    console.log(email);
+    this.shoppingCartService.buyAllNow(email);
   }
 
 }

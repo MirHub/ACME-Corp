@@ -32,8 +32,12 @@
   </table>
   <div>
     Send Receipt to: <br>
-    <input placeholder="jobs@example.com">
-    <button class="btn btn-success pull-right" id="buynowBtn" type="submit" (click)="buynow()">Buy Now</button>
+    <input #email
+      (keyup.enter)="buynow(email.value)"
+      (blur)="buynow(email.value); email.value='' "
+      placeholder="jobs@example.com">
+
+    <button class="btn btn-success pull-right" id="buynowBtn" type="submit" (click)="buynow(email.value)">Buy Now</button>
   </div>
 </body>
 

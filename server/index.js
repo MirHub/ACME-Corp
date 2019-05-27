@@ -147,7 +147,14 @@ app.get('/api/v1/shoppingcart', function (req, res) {
 });
 
 app.post('/api/v1/buynow', function (req, res) {
-    
+    let email;
+    let body = '';
+    req.on('data', chunk => {
+        body += chunk.toString();
+    });
+    req.on('end', () => {
+        email = body;
+    });
     var productsInCart;
     const transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
@@ -163,7 +170,7 @@ app.post('/api/v1/buynow', function (req, res) {
     });
     const mailOptions = {
         from: 'ora.collins@ethereal.email', // sender address
-        to: 'mir99999abbas@gmail.com', // list of receivers
+        to: ""+email, // list of receivers
         subject: 'You Receipt', // Subject line
         html: '<p>'+productsInCart+'</p>' // plain text body
     };

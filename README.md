@@ -13,3 +13,14 @@ Angluar:
 
 Note: Angular is running at port 4200 and express server is running at port 3000
 
+
+To get email:
+1. In app.post('/api/v1/buynow') change transporter value to your email, pass and use gmail service instead of ethereal:
+
+    const transporter = nodemailer.createTransport({
+            service: 'gmail'
+            auth: {
+                user: 'ora.collins@ethereal.email',
+                pass: 'YGE9B5jaNCAJSTaevC'
+            }
+        });
