@@ -10,9 +10,12 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  cartProducts: Product[];
-  constructor(private router: Router, private shoppingCartService: ShoppingCartService) { 
-    const  productObervable =  shoppingCartService.getShoppingCartProducts();
+  private cartProducts: Product[] = [];
+
+
+  constructor(private router: Router, private shoppingCartService: ShoppingCartService) {
+
+    const productObervable = shoppingCartService.getShoppingCartProducts();
     productObervable.subscribe(
       (products: Product[]) => {
         this.cartProducts = products;
@@ -24,7 +27,6 @@ export class CartComponent implements OnInit {
       () => {
         console.log("Observable Completed");
       }
-
     );
     // var currentUser = JSON.parse(localStorage.getItem('products'));
     // console.log("Current ", currentUser);
@@ -33,36 +35,37 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
-  remove = function(item) {
+  remove = (item) => {
     console.log(item.name);
     this.cartProducts.splice(item, 1);
-    this.shoppingCartService.removeProduct(item);
+    // this.shoppingCartService.removeProduct(item);
   }
-  
-  increase = function(item) {
+
+  increase = (item) => {
+    item.quantity = "4";
     let temp = Number(item.quantity);
     temp += 1;
     let avq = Number(item.quantityAvailable);
-    if(temp > avq){
+    if (temp > avq) {
       item.price = ""
-    }else{
+    } else {
       item.quantity = String(temp);
     }
 
   }
-  decrease = function(item){
+  decrease = (item) => {
     let temp = Number(item.quantity);
     temp -= 1;
-    if(temp == 0){
+    if (temp == 0) {
       this.cartProducts.splice(item, 1);
     }
-    item.quantity = String(temp); 
+    item.quantity = String(temp);
   }
 
-  buynow = function(){
-     this.shoppingCartService.buyAllNow();
+  buynow = (item) => {
+    this.shoppingCartService.buyAllNow(item);
   }
-  
+
 }

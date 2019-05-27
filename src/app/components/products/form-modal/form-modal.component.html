@@ -1,23 +1,17 @@
-    <div class="modal-header">
-    <h4 class="modal-title">{{product.title}} Details</h4>
+<div class="modal-header">
+  <h4 class="modal-title">{{product.title}} Details</h4>
 
 
-    <button type="button"
-            class="close"
-            aria-label="Close"
-            (click)="activeModal.dismiss('Cross click')">X
-    </button>
-    </div>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">X
+  </button>
+</div>
 
 
-    <form
-        [formGroup]="myForm"
-        (ngSubmit)="submitForm()"
-    >
+<form [formGroup]="myForm" (ngSubmit)="submitForm()">
 
-    <p> $ {{product.price}}</p>
-    <p> {{product.description}}</p>
-    <!-- <div class="modal-boy">
+  <p> $ {{product.price}}</p>
+  <p> {{product.description}}</p>
+  <!-- <div class="modal-boy">
     <div class="container">
       <div class="form-group">
         <label for="numberOfItems">Number of Items</label>
@@ -28,18 +22,14 @@
     </div> -->
 
 
-    <div class="modal-footer">
+  <div class="modal-footer">
 
-        <button class="btn btn-success" [disabled]="!myForm.valid"
-          (click)="addToCart('Add to Cart')">
-          Add to Cart
-        </button>
-        <button type="button"
-            class="btn btn-danger"
-            (click)="activeModal.dismiss('Close clicked')">
-            Cancel
-          </button>
+    <button class="btn btn-success" [disabled]="!myForm.valid" (click)="addToCart('Add to Cart')">
+      Add to Cart
+    </button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.dismiss('Close clicked')">
+      Cancel
+    </button>
 
-      </div>
-    </form>
-
+  </div>
+</form>

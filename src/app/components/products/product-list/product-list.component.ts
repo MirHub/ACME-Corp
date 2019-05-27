@@ -9,13 +9,13 @@ import { Product } from 'src/app/models/products.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  products: Product[] =[];
-  constructor(private productService: ProductService, private router: Router) { 
+  products: Product[] = [];
+  constructor(private productService: ProductService, private router: Router) {
     const productObervable = this.productService.getProducts();
     productObervable.subscribe(
       (products: Product[]) => {
         this.products = products;
-        
+
       },
       (err) => {
         console.log(err);
@@ -28,9 +28,9 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
   }
-  clickHandle(){
+  private clickHandle = () => {
     console.log(this.products);
     this.router.navigate(['cart'], { state: this.products });
   }

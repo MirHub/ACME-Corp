@@ -11,7 +11,7 @@ import { ProductListComponent } from 'src/app/components/products/product-list/p
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-  changeRoute(route:string){
+  changeRoute(route: string) {
 
   }
   ngOnInit() {

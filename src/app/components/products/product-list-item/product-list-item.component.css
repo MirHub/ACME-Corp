@@ -1,0 +1,19 @@
+.card-title {
+    font-size: 19px;
+    margin: 3px 0;
+}
+
+.card-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #b4b2b2;
+    margin-bottom: 0;
+}
+
+#addToCart {
+    float: right;
+}
+
+#priceTag {
+    float: right;
+}

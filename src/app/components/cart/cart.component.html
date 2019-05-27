@@ -1,34 +1,40 @@
-<html >
+<html>
 
-  <body class="container">
-   
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Items</th>
-          <th>Description</th>
-          <th colspan="2">Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of cartProducts">
-          <td><div class="medium-2 columns text-center">
-              <img src="http://via.placeholder.com/200x100"
-                    class="product_image"/>
-          </div></td>
-          <td><h3>{{item.title}}:</h3><br>
-          {{item.description}}</td>
-          <td><button class="btn btn-danger" (click) ="decrease(item)">-</button>&nbsp;&nbsp;<input maxlength="4" size="2" value={{item.quantity}}>&nbsp;&nbsp; <button class="btn btn-success" (click) ="increase(item)">+</button>&nbsp;&nbsp; x ${{item.price}} = {{item.quantity*item.price}}</td>
-          <td>
-            <button class="btn btn-danger" (click) ="remove(item)">Remove</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div>
-      Send Receipt to: <br>
+<body class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Items</th>
+        <th>Description</th>
+        <th colspan="2">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartProducts">
+        <td>
+          <div class="medium-2 columns text-center">
+            <img src="http://via.placeholder.com/200x100" class="product_image" />
+          </div>
+        </td>
+        <td>
+          <h3>{{item.title}}:</h3><br>
+          {{item.description}}
+        </td>
+        <td><button class="btn btn-danger" (click)="decrease(item)">-</button>&nbsp;&nbsp;<input maxlength="4" size="2"
+            value={{item.quantity}}>&nbsp;&nbsp; <button class="btn btn-success"
+            (click)="increase(item)">+</button>&nbsp;&nbsp; x ${{item.price}} = {{item.quantity*item.price}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="remove(item)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    Send Receipt to: <br>
     <input placeholder="jobs@example.com">
-    <button class="btn btn-success pull-right" id="buynowBtn" type="submit" (click) ="buynow()">Buy Now</button>
+    <button class="btn btn-success pull-right" id="buynowBtn" type="submit" (click)="buynow()">Buy Now</button>
   </div>
-  </body>
+</body>
+
 </html>

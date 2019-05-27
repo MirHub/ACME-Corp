@@ -1,12 +1,12 @@
 <!-- <router-outlet></router-outlet> -->
 <a (click)="openFormModal()">
-  <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="http://via.placeholder.com/450x300" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title"> {{product.title}} </h5>
-    <p class="card-text"> $ {{product.price}}</p>
-    <button id= "addToCart" class="btn btn-primary" (click)="addToCart();$event.stopPropagation()">Add to Cart</button>
-  </div>
-</div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="http://via.placeholder.com/450x300" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title"> {{product.title}} </h5>
+            <p id="priceTag" class="card-text"> $ {{product.price}}</p><br>
+            <button id="addToCart" class="btn btn-primary" (click)="addToCart();$event.stopPropagation()">Add to Cart</button>
+        </div>
+    </div>
 </a>
 <router-outlet></router-outlet>

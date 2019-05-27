@@ -14,17 +14,18 @@ import { HttpClientModule } from '@angular/common/http'
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 const routes: Routes = [
-  { path: 'products',
+  {
+    path: 'products',
     component: ProductsComponent,
     children: [
-    	{ path: '', component: ProductListComponent },]
+      { path: '', component: ProductListComponent },]
   }
 ]
 @NgModule({
   declarations: [
-    ProductsComponent, 
-    ProductListComponent, 
-    ProductListItemComponent, 
+    ProductsComponent,
+    ProductListComponent,
+    ProductListItemComponent,
     FormModalComponent],
   imports: [
     CommonModule,

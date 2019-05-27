@@ -12,22 +12,22 @@ export class ProductListItemComponent implements OnInit {
   @Input() product: any;
   constructor(private modalService: NgbModal, private shoppingCartService: ShoppingCartService) { }
 
-  openFormModal() {
+  openFormModal = () => {
     const modalRef = this.modalService.open(FormModalComponent);
 
-    modalRef.componentInstance.product = this.product; 
+    modalRef.componentInstance.product = this.product;
 
     modalRef.result.then((result) => {
       console.log(result);
     }).catch((error) => {
       console.log(error);
     });
-}
+  }
 
   ngOnInit() {
   }
 
-  addToCart(){
+  addToCart = () => {
     this.shoppingCartService.addProduct(this.product);
     console.log("Added to cart");
   }

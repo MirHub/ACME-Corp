@@ -5,10 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: 'cart',
+  {
+    path: 'cart',
     component: CartComponent,
     children: [
-    	{ path: '', component: CartComponent },]
+      { path: '', component: CartComponent },]
   }
 ]
 @NgModule({

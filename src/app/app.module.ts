@@ -14,7 +14,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CartModule } from './components/cart/cart.module';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/products', pathMatch: 'full'},
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
   {
     path: 'cart', component: CartComponent
   }
@@ -30,7 +30,7 @@ const routes: Routes = [
     ProductsModule,
     AppRoutingModule,
     CartModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent],

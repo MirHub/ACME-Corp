@@ -12,9 +12,9 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 export class FormModalComponent {
 
-  @Input() product:any;
+  @Input() product: any;
 
-  myForm: FormGroup;
+  private myForm: FormGroup;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -25,18 +25,18 @@ export class FormModalComponent {
   }
 
 
-  private createForm() {
+  private createForm = () => {
     this.myForm = this.formBuilder.group({
       numberOfItems: ''
     });
   }
 
 
-  submitForm() {
+  private submitForm = () => {
     console.log('form has been submitted');
     this.activeModal.close(this.myForm.value);
   }
-  addToCart(){
+  private addToCart= () => {
     this.shoppingCartService.addProduct(this.product);
     console.log("Added to cart");
   }
