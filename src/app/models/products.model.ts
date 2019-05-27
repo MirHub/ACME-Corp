@@ -5,5 +5,5 @@ export class Product {
     image: string;
     description: string;
     quantity?: string;
-    quantityAvailable?: string;
+    stocklevel?: string;
 }

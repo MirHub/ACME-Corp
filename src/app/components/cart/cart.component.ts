@@ -44,12 +44,11 @@ export class CartComponent implements OnInit {
   }
 
   increase = (item) => {
-    item.quantity = "4";
     let temp = Number(item.quantity);
     temp += 1;
-    let avq = Number(item.quantityAvailable);
+    let avq = Number(item.stocklevel);
     if (temp > avq) {
-      item.price = ""
+      item.price = "";
     } else {
       item.quantity = String(temp);
     }
@@ -61,7 +60,14 @@ export class CartComponent implements OnInit {
     if (temp == 0) {
       this.cartProducts.splice(item, 1);
     }
-    item.quantity = String(temp);
+    let avq = Number(item.stocklevel);
+    if (temp < avq) {
+      item.quantity = String(temp);
+    } else {
+      item.price = "";
+      
+    }
+
   }
 
   buynow = (item) => {
