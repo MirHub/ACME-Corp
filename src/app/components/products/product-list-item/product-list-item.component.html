@@ -5,6 +5,7 @@
         <div class="card-body">
             <h5 class="card-title"> {{product.title}} </h5>
             <p id="priceTag" class="card-text"> $ {{product.price}}</p><br>
+            <toaster-container ></toaster-container>
             <button id="addToCart" class="btn btn-primary" (click)="addToCart();$event.stopPropagation()">Add to Cart</button>
         </div>
     </div>
