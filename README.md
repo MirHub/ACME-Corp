@@ -1,4 +1,5 @@
-# AcmeApp
+# AcmeApp is a simple shopping cart using AngularJS, NodeJS, MongoDB and Boostrap
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
